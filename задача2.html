@@ -21,13 +21,13 @@
             const amount = parseInt(document.getElementById('amount').value);
             const resultDiv = document.getElementById('result');
 
-            // Проверяем, является ли введенная сумма числом и больше ли она нуля
+            
             if (isNaN(amount) || amount <= 0) {
                 resultDiv.innerText = "Введите корректную сумму.";
                 return;
             }
 
-            // Проверяем, делится ли сумма на 2
+        
             if (amount % 2 !== 0) {
                 resultDiv.innerText = "Сумму нельзя разменять с использованием указанных купюр и монеты.";
                 return;
@@ -42,7 +42,7 @@
             let notes10 = Math.floor(amount / 10);
             amount %= 10;
 
-            let coins2 = amount / 2; // Остальная сумма (лишь монеты 2 руб.)
+            let coins2 = amount / 2; 
 
             const result = `
                 500 руб.: ${notes500}<br>
