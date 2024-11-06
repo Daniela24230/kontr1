@@ -1,0 +1,58 @@
+<html <head>
+<meta charset="UTF-8">
+
+<head>
+    <title>form_abc</title>
+</head>
+
+<body>
+    <p name="formulation">Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно.</p>
+    <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+        <ul>
+            <li>Для поисковика:<input name="q" value="search"></li>
+            <li>Формулировка задачи 
+                <br><textarea cols="60" rows="4" id="task" name="formulation">Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно</textarea></li>
+                <input type="number" id="amount" placeholder="Сумма в рублях">   
+<button id="change-button">Разменять</button>
+        <h3>Результат:</h3>
+        <div id="result"><textarea cols="60" rows="4" id="task" name="formulation"></textarea></li></div>
+    <script>
+        document.getElementById('change-button').addEventListener('click', () => {
+            const amount = parseInt(document.getElementById('amount').value);
+            const resultDiv = document.getElementById('result');
+
+            // Проверяем, является ли введенная сумма числом и больше ли она нуля
+            if (isNaN(amount) || amount <= 0) {
+                resultDiv.innerText = "Введите корректную сумму.";
+                return;
+            }
+
+            // Проверяем, делится ли сумма на 2
+            if (amount % 2 !== 0) {
+                resultDiv.innerText = "Сумму нельзя разменять с использованием указанных купюр и монеты.";
+                return;
+            }
+
+            let notes500 = Math.floor(amount / 500);
+            amount %= 500;
+
+            let notes100 = Math.floor(amount / 100);
+            amount %= 100;
+
+            let notes10 = Math.floor(amount / 10);
+            amount %= 10;
+
+            let coins2 = amount / 2; // Остальная сумма (лишь монеты 2 руб.)
+
+            const result = `
+                500 руб.: ${notes500}<br>
+                100 руб.: ${notes100}<br>
+                10 руб.: ${notes10}<br>
+                2 руб.: ${coins2}<br>
+            `;
+
+            resultDiv.innerHTML = result;
+        });
+</form>
+</body>
+</html>

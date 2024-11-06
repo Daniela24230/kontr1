@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Размен денег</title>
+   
+</head>
+<body>
+
+    <div class="container">
+	<p>Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно.
+        <h2>Размен денег</h2>
+        <label for="amount">Введите сумму:</label>
+        <input type="number" id="amount" placeholder="ваша сумма"><br><br>
+        <button id="change-button">Разменять</button>
+        <h3>Результат:</h3>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('change-button').addEventListener('click', () => {
+            const amount = parseInt(document.getElementById('amount').value);
+            const resultDiv = document.getElementById('result');
+
+         
+            if (isNaN(amount) || amount <= 0) {
+                resultDiv.innerText = "Введите корректную сумму.";
+                return;
+            }
+
+           
+            if (amount % 2 !== 0) {
+                resultDiv.innerText = "Сумму нельзя разменять с использованием указанных купюр и монеты.";
+                return;
+            }
+
+            let notes500 = Math.floor(amount / 500);
+            amount %= 500;
+
+            let notes100 = Math.floor(amount / 100);
+            amount %= 100;
+
+            let notes10 = Math.floor(amount / 10);
+            amount %= 10;
+
+            let coins2 = amount / 2; 
+
+            const result = `
+                500 руб.: ${notes500}<br>
+                100 руб.: ${notes100}<br>
+                10 руб.: ${notes10}<br>
+                2 руб.: ${coins2}<br>
+            `;
+
+            resultDiv.innerHTML = result;
+        });
+    </script>
+
+</body>
+</html>

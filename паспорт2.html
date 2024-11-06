@@ -1,0 +1,93 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Паспорт</title>
+	<style> h3 {
+				color:#A0522D;}
+				h5 {
+				color:#A0522D;}
+				
+
+				</style>
+</head>
+
+<body bgcolor="#EEE8AA">
+ 
+ <h3 align="center">РОССИЙСКАЯ ФЕДЕРАЦИЯ</h3>
+ 
+ <p><table align="center" >
+ <tr align="center">
+ <td><h5>Паспорт выдан</h5></td>
+ <td width="200px" > <b>ГУ МВД РОССИ ПО ВОРОНЕЖСКОЙ ОБЛАСТИB</b></td>
+ </tr>
+ 
+ <tr align="center">
+ <td><h5>Дата выдачи</h5></td>
+ <td width="50px"><b>31.08.2022</b></td>
+ <td><h5>Код подразделения</h5></td>
+ <td width="60px"><b>349-007</b></td>
+ </tr>
+ 
+ <tr align="center">
+ <td><img height="60px" src="подпись-Photoroom.png"></td>
+ <td> </td>
+ <td><img height="60px" src="Подпись.png">
+ <p><h5>Личная подпись</h5></p></td>
+ </tr>
+ </table></p>
+ 
+<p></p>
+ 
+ <p><table align="center">
+ <tr align="center">
+ <td><img height="200px" src="Паспорт.png"></td>
+ <td><table align="center">
+ </tr>
+ 
+ <tr align="center">
+ <td><h5>Фамилия</h5></td>
+ <td width="200px" id="surname"><b>МЕЛЬНИКОВА</b></td>
+ </tr>
+ 
+ <tr align="center">
+ <td><h5>Имя</h5></td>
+ <td width="200px" id="name"><b>ДАНИЕЛА</b></td>
+ </tr>
+ 
+ <tr align="center">
+ <td><h5>Отвество</h5></td>
+ <td width="200px"id="new3"><b>ВИТАЛЬЕВНА</b></td>
+ </tr>
+ 
+ <tr align="center">
+ <td width="60px"><h5>Пол</h5></td>
+ <td width="60px"><b>ЖЕН.</b></td>
+ <td width="60px"><h5>Дата рождения</h5></td>
+ <td width="60px"><b>17.06.2003</b></td>
+ </tr>
+ 
+ <tr align="center">
+ <td><h5>Место рождения</h5></td>
+ <td width="200px"><b>ГОР. АШХАБАД 
+ <p>ТУРКМЕНИСТАН</p></b></td>
+ </tr>
+ 
+ </table>
+ </tr>
+ 
+ </table></p>
+ 
+ <div align="center"><button id="for_click">Изменить</button>
+ 
+  <script>
+        function find_edit(){
+            const item = document.getElementById('surname');
+            console.log(item.innerText);
+            item.innerHTML = "<b>MELMIKOVA</b>";
+			
+        }
+
+        const node_for_click = document.getElementById("for_click");
+        node_for_click.addEventListener("click", find_edit);
+    </script>
+
+</body>
